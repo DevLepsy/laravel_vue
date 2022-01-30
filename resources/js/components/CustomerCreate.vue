@@ -19,6 +19,7 @@
 </template>
 <script>
 import { reactive } from "vue";
+import router from "../router/index";
 import useCustomers from "../services/customerservices";
 export default {
     setup() {
@@ -30,7 +31,8 @@ export default {
 
         const {createCustomer} = useCustomers();
         const storeCustomer = async () => {
-            await createCustomer();
+            await createCustomer({...form});
+            router.push({name: 'customer.index'})
         }
 
         return {
