@@ -14,7 +14,9 @@ class CustomerFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' =>$this->faker->name(),
+            'tel' =>$this->faker->phoneNumber(),
+            'is_favourite' => rand(0,1)
         ];
     }
 }
